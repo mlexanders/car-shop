@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/Style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="~/">Сашка Продовашка</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="~/">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="~/Cars/List">Машины</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="~/Cars/List/electro">Электро</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="~/Cars/List/fuel">Классика</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ShopCart/Index">Корзина</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+    @RenderBody()
+    </div>
+    <script src="~/js/bootstrap.min.js"></script>
+    <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+            <p>© 2021 Все права справа, Inc. · <a href="#">Privacy</a>
+    </footer>
+</body>
+
+</html>
