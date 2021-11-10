@@ -9,11 +9,13 @@ namespace Test.Controllers
     {
         private readonly IAllCars _carRepository;
         private readonly ShopCart _shopCart;
+        private readonly IShopCart _shopCartDelete;
 
-        public ShopCartController(IAllCars carRepository, ShopCart shopCart)
+        public ShopCartController(IAllCars carRepository, ShopCart shopCart, IShopCart shopCartDelete)
         {
             _carRepository = carRepository;
             _shopCart = shopCart;
+            _shopCartDelete = shopCartDelete;
         }
 
         [Route("~/ShopCart/Index")]
@@ -33,11 +35,19 @@ namespace Test.Controllers
         [Route("~/ShopCart/AddToCart")]
         public RedirectToActionResult AddToCart(int id)
         {
-            var item =_carRepository.Cars.FirstOrDefault(i=>i.id == id);
+            var item = _carRepository.Cars.FirstOrDefault(i => i.id == id);
             if (item != null)
             {
                 _shopCart.AddToCart(item);
             }
+            return RedirectToAction("Index");
+        }
+
+        [Route("~/ShopCart/DeleteCart/{id}")]
+        public RedirectToActionResult DelitCart(int id)
+        {
+            _shopCartDelete.DeleteCart(id);
+
             return RedirectToAction("Index");
         }
     }

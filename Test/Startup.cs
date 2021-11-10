@@ -32,6 +32,7 @@ namespace Test
             services.AddTransient<IAllCars, CarRepository>();
             services.AddTransient<ICarCategory, CategoryRepository>();
             services.AddTransient<IAllOrders, OrdersRepository>();
+            services.AddTransient<IShopCart, ShopCartRepository>();
             services.AddControllersWithViews();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
