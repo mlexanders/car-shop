@@ -31,6 +31,7 @@ namespace Test.Models.Repository
                     Car = element.car,
                     Order = order
                 };
+                _dbContext.Remove(element);
                 _dbContext.OrderDatails.Add(orderDetail);
             }
             _dbContext.SaveChanges();
