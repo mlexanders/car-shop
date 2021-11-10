@@ -40,9 +40,10 @@ namespace Test.Controllers
             return View(order);
         }
 
+        [Route("~/Order/Complete")]
         public IActionResult Complete()
         {
-            ViewBag.Nessage = "Заказ успешно обработан";
+            ViewBag.Message = "Заказ успешно обработан";
             return View();
         }
     }

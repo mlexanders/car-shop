@@ -27,7 +27,9 @@ namespace Test.Models.Repository
                 {
                     CarId = element.car.id,
                     OrderId = order.Id,
-                    Price = element.car.price
+                    Price = element.car.price,
+                    Car = element.car,
+                    Order = order
                 };
                 _dbContext.OrderDatails.Add(orderDetail);
             }
