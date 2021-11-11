@@ -28,7 +28,7 @@ namespace Test.Controllers
 
             if (_shopCart.listShopCarItem.Count == 0)
             {
-                ModelState.AddModelError("", "У вас должны быть товары");
+                ModelState.AddModelError("Email", "У вас должны быть товары");
             }
 
             if (ModelState.IsValid)

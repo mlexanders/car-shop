@@ -9,7 +9,7 @@
             _dbContext = dBContext;
         }
 
-        public void DeleteCart(int id)
+        public void DeleteCartItem(int id)
         {
             var deleteItem =_dbContext.ShopCartItems.Find(id);
             _dbContext.ShopCartItems.Remove(deleteItem);

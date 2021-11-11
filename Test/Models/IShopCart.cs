@@ -2,6 +2,6 @@
 {
     public interface IShopCart
     {
-        public void DeleteCart(int id);
+        public void DeleteCartItem(int id);
     }
 }

@@ -43,10 +43,10 @@ namespace Test.Controllers
             return RedirectToAction("Index");
         }
 
-        [Route("~/ShopCart/DeleteCart/{id}")]
-        public RedirectToActionResult DelitCart(int id)
+        [Route("~/ShopCart/DeleteCartItem/{id}")]
+        public RedirectToActionResult DelitCartItem(int id)
         {
-            _shopCartDelete.DeleteCart(id);
+            _shopCartDelete.DeleteCartItem(id);
 
             return RedirectToAction("Index");
         }
