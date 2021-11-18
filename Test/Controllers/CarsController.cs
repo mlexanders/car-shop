@@ -18,7 +18,6 @@ namespace Test.Controllers
             _carCategory = carCategory;
         }
 
-        //[Route("~/Cars/List")]
         [Route("~/Cars/List/{category?}")]
         public IActionResult List(string category)
         {

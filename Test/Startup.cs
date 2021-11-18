@@ -25,23 +25,26 @@ namespace Test
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews();
+
             services.AddDbContext<AppDBContext>(options =>
             {
                 options.UseSqlServer(_confString.GetConnectionString("DefaultConnection"));
             });
+
             services.AddTransient<IAllCars, CarRepository>();
             services.AddTransient<ICarCategory, CategoryRepository>();
             services.AddTransient<IAllOrders, OrdersRepository>();
             services.AddTransient<IShopCart, ShopCartRepository>();
-            services.AddControllersWithViews();
-
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddScoped(sp => ShopCart.GetCart(sp));
 
             services.AddControllersWithViews(mvcOtions =>
             {
                 mvcOtions.EnableEndpointRouting = false;
             });
+
             services.AddMemoryCache();
             services.AddSession();
         }
