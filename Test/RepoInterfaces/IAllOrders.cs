@@ -1,4 +1,6 @@
-﻿namespace Test.Models
+﻿using Test.Models;
+
+namespace Test.RepoInterfaces
 {
     public interface IAllOrders
     {

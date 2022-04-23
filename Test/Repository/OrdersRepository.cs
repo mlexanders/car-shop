@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
+using Test.Models;
+using Test.RepoInterfaces;
 
-namespace Test.Models.Repository
+namespace Test.Repository
 {
     public class OrdersRepository : IAllOrders
     {
@@ -25,9 +26,9 @@ namespace Test.Models.Repository
             {
                 var orderDetail = new OrderDatail
                 {
-                    CarId = element.car.id,
+                    CarId = element.car.Id,
                     OrderId = order.Id,
-                    Price = element.car.price,
+                    Price = element.car.Price,
                     Car = element.car,
                     Order = order
                 };

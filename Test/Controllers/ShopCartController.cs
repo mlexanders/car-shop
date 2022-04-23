@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using Test.Models;
+using Test.RepoInterfaces;
 using Test.ViewModels;
 
 namespace Test.Controllers
@@ -35,7 +36,7 @@ namespace Test.Controllers
         [Route("~/ShopCart/AddToCart")]
         public RedirectToActionResult AddToCart(int id)
         {
-            var item = _carRepository.Cars.FirstOrDefault(i => i.id == id);
+            var item = _carRepository.Cars.FirstOrDefault(i => i.Id == id);
             if (item != null)
             {
                 _shopCart.AddToCart(item);

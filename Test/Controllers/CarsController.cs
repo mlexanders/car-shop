@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Test.Models;
+using Test.RepoInterfaces;
 using Test.ViewModels;
 
 namespace Test.Controllers
@@ -26,16 +27,16 @@ namespace Test.Controllers
             string currentCategory = null;
             if (string.IsNullOrEmpty(category))
             {
-                cars = _allCars.Cars.OrderBy(i => i.id);
+                cars = _allCars.Cars.OrderBy(i => i.Id);
             }
             else if (string.Equals("electro", category, StringComparison.OrdinalIgnoreCase))
             {
-                cars = _allCars.Cars.Where(i => i.Category.categoryName.Equals("Электромобиль")).OrderBy(i => i.id);
+                cars = _allCars.Cars.Where(i => i.Category.categoryName.Equals("Электромобиль")).OrderBy(i => i.Id);
                 currentCategory = "Электромобили";
             }
             else if (string.Equals("fuel", category, StringComparison.OrdinalIgnoreCase))
             {
-                cars = _allCars.Cars.Where(i => i.Category.categoryName.Equals("Классический автомобиль")).OrderBy(i => i.id);
+                cars = _allCars.Cars.Where(i => i.Category.categoryName.Equals("Классический автомобиль")).OrderBy(i => i.Id);
                 currentCategory = "Классические автомобили";
             }
 

@@ -10,9 +10,9 @@ namespace Test.Models
         [BindNever]
         public int Id { get; set; }
 
-        [Display(Name ="Введите Имя")]
+        [Display(Name = "Введите Имя")]
         [MinLength(1)]
-        [Required(ErrorMessage ="Заполните поле")]
+        [Required(ErrorMessage = "Заполните поле")]
         public string Name { get; set; }
 
         [Display(Name = "Введите Фамилию")]
@@ -39,7 +39,7 @@ namespace Test.Models
 
         [BindNever]
         [ScaffoldColumn(false)]
-        public DateTime OrderTime{ get; set; }
-        public List<OrderDatail> OrderDatails{ get; set; }
+        public DateTime OrderTime { get; set; }
+        public List<OrderDatail> OrderDatails { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Test.Models;
+using Test.RepoInterfaces;
 
 namespace Test.Controllers
 {
