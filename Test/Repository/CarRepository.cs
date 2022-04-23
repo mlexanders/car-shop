@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
+using Test.Models;
+using Test.RepoInterfaces;
 
-namespace Test.Models.Repository
+namespace Test.Repository
 {
     public class CarRepository : IAllCars
     {

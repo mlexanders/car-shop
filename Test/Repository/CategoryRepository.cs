@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using Test.Models;
+using Test.RepoInterfaces;
 
-namespace Test.Models.Repository
+namespace Test.Repository
 {
     public class CategoryRepository : ICarCategory
     {

@@ -1,4 +1,4 @@
-﻿namespace Test.Models
+﻿namespace Test.RepoInterfaces
 {
     public interface IShopCart
     {

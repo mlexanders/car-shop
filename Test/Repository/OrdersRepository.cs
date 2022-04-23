@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
+using Test.Models;
+using Test.RepoInterfaces;
 
-namespace Test.Models.Repository
+namespace Test.Repository
 {
     public class OrdersRepository : IAllOrders
     {

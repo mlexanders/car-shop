@@ -21,7 +21,7 @@ namespace Test.Models
 
         public static ShopCart GetCart(IServiceProvider services)
         {
-            ISession session=services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
+            ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
             var context = services.GetService<AppDBContext>();
             string shopCarId = session.GetString("CartId") ?? Guid.NewGuid().ToString();
 
@@ -42,7 +42,7 @@ namespace Test.Models
         }
         public List<ShopCartItem> GetShopItems()
         {
-            return _dbContext.ShopCartItems.Where(c=>c.shopCartId == ShopCartId).Include(s=>s.car).ToList();
+            return _dbContext.ShopCartItems.Where(c => c.shopCartId == ShopCartId).Include(s => s.car).ToList();
         }
     }
 }

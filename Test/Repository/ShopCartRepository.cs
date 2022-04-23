@@ -1,4 +1,6 @@
-﻿namespace Test.Models.Repository
+﻿using Test.RepoInterfaces;
+
+namespace Test.Repository
 {
     public class ShopCartRepository : IShopCart
     {
@@ -11,7 +13,7 @@
 
         public void DeleteCartItem(int id)
         {
-            var deleteItem =_dbContext.ShopCartItems.Find(id);
+            var deleteItem = _dbContext.ShopCartItems.Find(id);
             _dbContext.ShopCartItems.Remove(deleteItem);
             _dbContext.SaveChanges();
         }

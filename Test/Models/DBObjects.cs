@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Test.Models
@@ -9,7 +7,7 @@ namespace Test.Models
     {
         public static void Initial(AppDBContext context)
         {
-            
+
             if (!context.Categories.Any())
             {
                 context.Categories.AddRange(Categories.Select(c => c.Value));
