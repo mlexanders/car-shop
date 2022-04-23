@@ -25,13 +25,13 @@ namespace Test.Models.Repository
         {
             get
             {
-                return _dbContext.Cars.Where(c => c.isFavourite).Include(c => c.Category);
+                return _dbContext.Cars.Where(c => c.IsFavourite).Include(c => c.Category);
             }
         }
 
         public Car GetCar(int carId)
         {
-            return _dbContext.Cars.FirstOrDefault(p => p.id == carId);
+            return _dbContext.Cars.FirstOrDefault(p => p.Id == carId);
         }
     }
 }

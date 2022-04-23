@@ -35,7 +35,7 @@ namespace Test.Models
             {
                 shopCartId = ShopCartId,
                 car = car,
-                price = car.price
+                price = car.Price
             });
 
             _dbContext.SaveChanges();

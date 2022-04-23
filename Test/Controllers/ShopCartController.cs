@@ -35,7 +35,7 @@ namespace Test.Controllers
         [Route("~/ShopCart/AddToCart")]
         public RedirectToActionResult AddToCart(int id)
         {
-            var item = _carRepository.Cars.FirstOrDefault(i => i.id == id);
+            var item = _carRepository.Cars.FirstOrDefault(i => i.Id == id);
             if (item != null)
             {
                 _shopCart.AddToCart(item);

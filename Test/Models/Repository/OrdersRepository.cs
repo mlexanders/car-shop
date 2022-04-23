@@ -25,9 +25,9 @@ namespace Test.Models.Repository
             {
                 var orderDetail = new OrderDatail
                 {
-                    CarId = element.car.id,
+                    CarId = element.car.Id,
                     OrderId = order.Id,
-                    Price = element.car.price,
+                    Price = element.car.Price,
                     Car = element.car,
                     Order = order
                 };

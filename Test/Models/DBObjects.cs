@@ -20,73 +20,73 @@ namespace Test.Models
                 context.AddRange(
                     new Car
                     {
-                        name = "Tesla Model S",
-                        shortDescription = "Быстрый автомобиль",
-                        longDescription = "Красивый, быстрый и очень тихий автомобиль компании Tesla",
-                        image = "/img/TeslaModelS.jpg",
-                        price = 45000,
-                        isFavourite = true,
-                        available = true,
+                        Name = "Tesla Model S",
+                        ShortDescription = "Быстрый автомобиль",
+                        LongDescription = "Красивый, быстрый и очень тихий автомобиль компании Tesla",
+                        Image = "/img/TeslaModelS.jpg",
+                        Price = 45000,
+                        IsFavourite = true,
+                        Available = true,
                         Category = Categories["Электромобиль"]
                     },
 
                     new Car
                     {
-                        name = "Ford Fiesta",
-                        shortDescription = "Тихий и спокойный",
-                        longDescription = "Удобный для городской жизни",
-                        image = "/img/FordFiesta.jpg",
-                        price = 11000,
-                        isFavourite = false,
-                        available = true,
+                        Name = "Ford Fiesta",
+                        ShortDescription = "Тихий и спокойный",
+                        LongDescription = "Удобный для городской жизни",
+                        Image = "/img/FordFiesta.jpg",
+                        Price = 11000,
+                        IsFavourite = false,
+                        Available = true,
                         Category = Categories["Классический автомобиль"]
                     },
 
                     new Car
                     {
-                        name = "BMW M3",
-                        shortDescription = "Дерзкий и стильный",
-                        longDescription = "Удобный для городской жизни",
-                        image = "/img/BMWM3.jpg",
-                        price = 65000,
-                        isFavourite = true,
-                        available = true,
+                        Name = "BMW M3",
+                        ShortDescription = "Дерзкий и стильный",
+                        LongDescription = "Удобный для городской жизни",
+                        Image = "/img/BMWM3.jpg",
+                        Price = 65000,
+                        IsFavourite = true,
+                        Available = true,
                         Category = Categories["Классический автомобиль"]
                     },
 
                     new Car
                     {
-                        name = "Mercedes C class",
-                        shortDescription = "Уютный и большой",
-                        longDescription = "Удобный для городской жизни",
-                        image = "/img/MercedesCclass.jpg",
-                        price = 40000,
-                        isFavourite = false,
-                        available = true,
+                        Name = "Mercedes C class",
+                        ShortDescription = "Уютный и большой",
+                        LongDescription = "Удобный для городской жизни",
+                        Image = "/img/MercedesCclass.jpg",
+                        Price = 40000,
+                        IsFavourite = false,
+                        Available = true,
                         Category = Categories["Электромобиль"]
                     },
 
                     new Car
                     {
-                        name = "Nissan Leaf",
-                        shortDescription = "Бесшумный и экономичный",
-                        longDescription = "Удобный для городской жизни",
-                        image = "/img/NissanLeaf.jpg",
-                        price = 14000,
-                        isFavourite = false,
-                        available = true,
+                        Name = "Nissan Leaf",
+                        ShortDescription = "Бесшумный и экономичный",
+                        LongDescription = "Удобный для городской жизни",
+                        Image = "/img/NissanLeaf.jpg",
+                        Price = 14000,
+                        IsFavourite = false,
+                        Available = true,
                         Category = Categories["Классический автомобиль"]
                     },
 
                     new Car
                     {
-                        name = "YAZ Buhanka",
-                        shortDescription = "Буханистая",
-                        longDescription = "Можно возить картошку",
-                        image = "/img/YAZBuhanka.jpg",
-                        price = 9,
-                        isFavourite = true,
-                        available = true,
+                        Name = "YAZ Buhanka",
+                        ShortDescription = "Буханистая",
+                        LongDescription = "Можно возить картошку",
+                        Image = "/img/YAZBuhanka.jpg",
+                        Price = 9,
+                        IsFavourite = true,
+                        Available = true,
                         Category = Categories["Классический автомобиль"]
                     });
             }
