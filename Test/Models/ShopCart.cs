@@ -33,16 +33,16 @@ namespace Test.Models
         {
             _dbContext.ShopCartItems.Add(new ShopCartItem
             {
-                shopCartId = ShopCartId,
-                car = car,
-                price = car.Price
+                ShopCartId = ShopCartId,
+                Car = car,
+                Price = car.Price
             });
 
             _dbContext.SaveChanges();
         }
         public List<ShopCartItem> GetShopItems()
         {
-            return _dbContext.ShopCartItems.Where(c => c.shopCartId == ShopCartId).Include(s => s.car).ToList();
+            return _dbContext.ShopCartItems.Where(c => c.ShopCartId == ShopCartId).Include(s => s.Car).ToList();
         }
     }
 }

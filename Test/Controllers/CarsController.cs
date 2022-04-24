@@ -31,12 +31,12 @@ namespace Test.Controllers
             }
             else if (string.Equals("electro", category, StringComparison.OrdinalIgnoreCase))
             {
-                cars = _allCars.Cars.Where(i => i.Category.categoryName.Equals("Электромобиль")).OrderBy(i => i.Id);
+                cars = _allCars.Cars.Where(i => i.Category.CategoryName.Equals("Электромобиль")).OrderBy(i => i.Id);
                 currentCategory = "Электромобили";
             }
             else if (string.Equals("fuel", category, StringComparison.OrdinalIgnoreCase))
             {
-                cars = _allCars.Cars.Where(i => i.Category.categoryName.Equals("Классический автомобиль")).OrderBy(i => i.Id);
+                cars = _allCars.Cars.Where(i => i.Category.CategoryName.Equals("Классический автомобиль")).OrderBy(i => i.Id);
                 currentCategory = "Классические автомобили";
             }
 

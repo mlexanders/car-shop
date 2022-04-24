@@ -26,10 +26,10 @@ namespace Test.Repository
             {
                 var orderDetail = new OrderDatail
                 {
-                    CarId = element.car.Id,
+                    CarId = element.Car.Id,
                     OrderId = order.Id,
-                    Price = element.car.Price,
-                    Car = element.car,
+                    Price = element.Car.Price,
+                    Car = element.Car,
                     Order = order
                 };
                 _dbContext.Remove(element);

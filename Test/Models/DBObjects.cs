@@ -101,14 +101,14 @@ namespace Test.Models
                 {
                     var list = new Category[]
                     {
-                         new Category {categoryName ="Электромобиль", description="Современный вид транспорта"},
-                        new Category {categoryName="Классический автомобиль", description="Машина с видом внутреннего сгорания"}
+                         new Category {CategoryName ="Электромобиль", Description="Современный вид транспорта"},
+                        new Category {CategoryName="Классический автомобиль", Description="Машина с видом внутреннего сгорания"}
                     };
 
                     category = new Dictionary<string, Category>();
                     foreach (Category element in list)
                     {
-                        category.Add(element.categoryName, element);
+                        category.Add(element.CategoryName, element);
                     }
                 }
 

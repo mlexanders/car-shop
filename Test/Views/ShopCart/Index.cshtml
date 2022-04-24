@@ -4,9 +4,9 @@
     @foreach(var element in Model.shopCart.listShopCarItem)
     {
         <div class ="alert alert-warning mt-3">
-            <b>Автомобиль:</b>@element.car.Name<br/>
-            <b>Цена:</b>@element.car.Price.ToString("c")<br/>
-            <b><a class="btn btn-warning" href="~/ShopCart/DeleteCartItem/@element.id">Удалить</a></b>
+            <b>Автомобиль:</b>@element.Car.Name<br/>
+            <b>Цена:</b>@element.Car.Price.ToString("c")<br/>
+            <b><a class="btn btn-warning" href="~/ShopCart/DeleteCartItem/@element.Id">Удалить</a></b>
         </div>
     }
     <hr/>
