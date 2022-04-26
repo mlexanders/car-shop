@@ -6,7 +6,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Test.Models;
-using Test.RepoInterfaces;
 using Test.Repository;
 
 namespace Test
@@ -33,10 +32,10 @@ namespace Test
                 options.UseSqlServer(_confString.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddTransient<IAllCars, CarRepository>();
-            services.AddTransient<ICarCategory, CategoryRepository>();
-            services.AddTransient<IAllOrders, OrdersRepository>();
-            services.AddTransient<IShopCart, ShopCartRepository>();
+            services.AddTransient<CarRepository>();
+            services.AddTransient<CategoryRepository>();
+            services.AddTransient<OrdersRepository>();
+            services.AddTransient<ShopCartRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddScoped(sp => ShopCart.GetCart(sp));

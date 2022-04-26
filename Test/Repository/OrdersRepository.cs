@@ -1,26 +1,25 @@
 ﻿using System;
 using Test.Models;
-using Test.RepoInterfaces;
 
 namespace Test.Repository
 {
-    public class OrdersRepository : IAllOrders
+    public class OrdersRepository
     {
-        private readonly AppDBContext _dbContext;
-        private readonly ShopCart _shopCart;
+        private readonly AppDBContext dbContext;
+        private readonly ShopCart shopCart;
 
         public OrdersRepository(AppDBContext dBContext, ShopCart shopCart)
         {
-            _dbContext = dBContext;
-            _shopCart = shopCart;
+            this.dbContext = dBContext;
+            this.shopCart = shopCart;
         }
 
         public void CreateOrder(Order order)
         {
             order.OrderTime = DateTime.Now;
-            _dbContext.Orders.Add(order);
+            dbContext.Orders.Add(order);
 
-            var items = _shopCart.listShopCarItem;
+            var items = shopCart.ListShopCarItem;
 
             foreach (var element in items)
             {
@@ -32,10 +31,10 @@ namespace Test.Repository
                     Car = element.Car,
                     Order = order
                 };
-                _dbContext.Remove(element);
-                _dbContext.OrderDatails.Add(orderDetail);
+                dbContext.Remove(element);
+                dbContext.OrderDatails.Add(orderDetail);
             }
-            _dbContext.SaveChanges();
+            dbContext.SaveChanges();
         }
     }
 }

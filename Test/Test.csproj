@@ -21,4 +21,6 @@
     <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties dbsettings_1json__JsonSchema="https://beaujs.com/schema.json" /></VisualStudio></ProjectExtensions>
+
 </Project>

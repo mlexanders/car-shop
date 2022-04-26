@@ -1,45 +1,46 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Threading.Tasks;
 using Test.Models;
-using Test.RepoInterfaces;
+using Test.Repository;
 using Test.ViewModels;
 
 namespace Test.Controllers
 {
     public class ShopCartController : Controller
     {
-        private readonly IAllCars _carRepository;
-        private readonly ShopCart _shopCart;
-        private readonly IShopCart _shopCartDelete;
+        private readonly CarRepository carRepository;
+        private readonly ShopCart shopCart;
+        private readonly ShopCartRepository shopCartDelete;
 
-        public ShopCartController(IAllCars carRepository, ShopCart shopCart, IShopCart shopCartDelete)
+        public ShopCartController(CarRepository carRepository, ShopCart shopCart, ShopCartRepository shopCartDelete)
         {
-            _carRepository = carRepository;
-            _shopCart = shopCart;
-            _shopCartDelete = shopCartDelete;
+            this.carRepository = carRepository;
+            this.shopCart = shopCart;
+            this.shopCartDelete = shopCartDelete;
         }
 
         [Route("~/ShopCart/Index")]
         public ViewResult Index()
         {
-            var items = _shopCart.GetShopItems();
-            _shopCart.listShopCarItem = items;
+            var items = shopCart.GetShopItems();
+            shopCart.ListShopCarItem = items;
 
             var obj = new ShopCartViewModel
             {
-                shopCart = _shopCart
+                shopCart = shopCart
             };
 
             return View(obj);
         }
 
         [Route("~/ShopCart/AddToCart")]
-        public RedirectToActionResult AddToCart(int id)
+        public async Task<RedirectToActionResult> AddToCart(int id)
         {
-            var item = _carRepository.Cars.FirstOrDefault(i => i.Id == id);
+            var item = await carRepository.Read(id);
             if (item != null)
             {
-                _shopCart.AddToCart(item);
+                shopCart.AddToCart(item);
             }
             return RedirectToAction("Index");
         }
@@ -47,7 +48,7 @@ namespace Test.Controllers
         [Route("~/ShopCart/DeleteCartItem/{id}")]
         public RedirectToActionResult DelitCartItem(int id)
         {
-            _shopCartDelete.DeleteCartItem(id);
+            shopCartDelete.DeleteCartItem(id);
 
             return RedirectToAction("Index");
         }

@@ -1,18 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Test.Models;
-using Test.RepoInterfaces;
+using Test.Repository;
 
 namespace Test.Controllers
 {
     public class OrderController : Controller
     {
-        private readonly IAllOrders _allOrders;
-        private readonly ShopCart _shopCart;
+        private readonly OrdersRepository allOrders;
+        private readonly ShopCart shopCart;
 
-        public OrderController(IAllOrders allOrders, ShopCart shopCart)
+        public OrderController(OrdersRepository allOrders, ShopCart shopCart)
         {
-            _allOrders = allOrders;
-            _shopCart = shopCart;
+            this.allOrders = allOrders;
+            this.shopCart = shopCart;
         }
 
         [Route("~/Order/CheckOut")]
@@ -25,16 +25,16 @@ namespace Test.Controllers
         [HttpPost]
         public IActionResult CheckOut(Order order)
         {
-            _shopCart.listShopCarItem = _shopCart.GetShopItems();
+            shopCart.ListShopCarItem = shopCart.GetShopItems();
 
-            if (_shopCart.listShopCarItem.Count == 0)
+            if (shopCart.ListShopCarItem.Count == 0)
             {
                 ModelState.AddModelError("Email", "У вас должны быть товары");
             }
 
             if (ModelState.IsValid)
             {
-                _allOrders.CreateOrder(order);
+                allOrders.CreateOrder(order);
                 return RedirectToAction("Complete");
             }
 

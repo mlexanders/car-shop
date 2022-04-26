@@ -9,15 +9,15 @@ namespace Test.Models
 {
     public class ShopCart
     {
-        private readonly AppDBContext _dbContext;
+        private readonly AppDBContext dbContext;
 
         public ShopCart(AppDBContext appDBContext)
         {
-            _dbContext = appDBContext;
+            dbContext = appDBContext;
         }
 
         public string ShopCartId { get; set; }
-        public List<ShopCartItem> listShopCarItem { get; set; }
+        public List<ShopCartItem> ListShopCarItem { get; set; }
 
         public static ShopCart GetCart(IServiceProvider services)
         {
@@ -31,18 +31,18 @@ namespace Test.Models
         }
         public void AddToCart(Car car)
         {
-            _dbContext.ShopCartItems.Add(new ShopCartItem
+            dbContext.ShopCartItems.Add(new ShopCartItem
             {
                 ShopCartId = ShopCartId,
                 Car = car,
                 Price = car.Price
             });
 
-            _dbContext.SaveChanges();
+            dbContext.SaveChanges();
         }
         public List<ShopCartItem> GetShopItems()
         {
-            return _dbContext.ShopCartItems.Where(c => c.ShopCartId == ShopCartId).Include(s => s.Car).ToList();
+            return dbContext.ShopCartItems.Where(c => c.ShopCartId == ShopCartId).Include(s => s.Car).ToList();
         }
     }
 }

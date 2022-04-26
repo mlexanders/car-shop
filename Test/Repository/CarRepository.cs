@@ -1,39 +1,27 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Test.Models;
-using Test.RepoInterfaces;
 
 namespace Test.Repository
 {
-    public class CarRepository : IAllCars
+    public class CarRepository : BaseCrudRepository<Car>
     {
-        private readonly AppDBContext _dbContext;
-
-        public CarRepository(AppDBContext appDBContext)
+        AppDBContext dBContext;
+        public CarRepository(AppDBContext dBContext) : base(dBContext)
         {
-            _dbContext = appDBContext;
+            this.dBContext = dBContext;
         }
 
-        public IEnumerable<Car> Cars
+        public async Task<IEnumerable<Car>> Read()
         {
-            get
-            {
-                return _dbContext.Cars.Include(c => c.Category);
-            }
+            return await dBContext.Cars.Include(c=>c.Category).ToListAsync();
         }
 
-        public IEnumerable<Car> GetFavCars
+        public async Task<List<Car>> GetFavoriteCars()
         {
-            get
-            {
-                return _dbContext.Cars.Where(c => c.IsFavourite).Include(c => c.Category);
-            }
-        }
-
-        public Car GetCar(int carId)
-        {
-            return _dbContext.Cars.FirstOrDefault(p => p.Id == carId);
+            return (await Read()).Where(c => c.IsFavourite).ToList();
         }
     }
 }

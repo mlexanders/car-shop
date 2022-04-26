@@ -1,21 +1,19 @@
-﻿using Test.RepoInterfaces;
-
-namespace Test.Repository
+﻿namespace Test.Repository
 {
-    public class ShopCartRepository : IShopCart
+    public class ShopCartRepository
     {
-        private readonly AppDBContext _dbContext;
+        private readonly AppDBContext dbContext;
 
         public ShopCartRepository(AppDBContext dBContext)
         {
-            _dbContext = dBContext;
+            this.dbContext = dBContext;
         }
 
         public void DeleteCartItem(int id)
         {
-            var deleteItem = _dbContext.ShopCartItems.Find(id);
-            _dbContext.ShopCartItems.Remove(deleteItem);
-            _dbContext.SaveChanges();
+            var deleteItem = dbContext.ShopCartItems.Find(id);
+            dbContext.ShopCartItems.Remove(deleteItem);
+            dbContext.SaveChanges();
         }
     }
 }

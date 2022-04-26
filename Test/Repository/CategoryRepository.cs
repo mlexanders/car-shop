@@ -1,18 +1,11 @@
-﻿using System.Collections.Generic;
-using Test.Models;
-using Test.RepoInterfaces;
+﻿using Test.Models;
 
 namespace Test.Repository
 {
-    public class CategoryRepository : ICarCategory
+    public class CategoryRepository : BaseCrudRepository<Category>
     {
-        private readonly AppDBContext _dbContext;
-
-        public CategoryRepository(AppDBContext appDBContext)
+        public CategoryRepository(AppDBContext dBContext) : base(dBContext)
         {
-            _dbContext = appDBContext;
         }
-
-        public IEnumerable<Category> AllCategories => _dbContext.Categories;
     }
 }
