@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 using System.Threading.Tasks;
-using Test.Models;
 using Test.Repository;
 using Test.ViewModels;
 
@@ -10,25 +8,23 @@ namespace Test.Controllers
     public class ShopCartController : Controller
     {
         private readonly CarRepository carRepository;
-        private readonly ShopCart shopCart;
-        private readonly ShopCartRepository shopCartDelete;
+        private readonly ShopCartRepositore shopCartRepositore;
 
-        public ShopCartController(CarRepository carRepository, ShopCart shopCart, ShopCartRepository shopCartDelete)
+        public ShopCartController(CarRepository carRepository, ShopCartRepositore shopCartRepositore)
         {
             this.carRepository = carRepository;
-            this.shopCart = shopCart;
-            this.shopCartDelete = shopCartDelete;
+            this.shopCartRepositore = shopCartRepositore;
         }
 
         [Route("~/ShopCart/Index")]
         public ViewResult Index()
         {
-            var items = shopCart.GetShopItems();
-            shopCart.ListShopCarItem = items;
+            var items = shopCartRepositore.GetShopItems();
+            shopCartRepositore.ListShopCarItem = items;
 
             var obj = new ShopCartViewModel
             {
-                shopCart = shopCart
+                ListShopCarItem = shopCartRepositore.ListShopCarItem
             };
 
             return View(obj);
@@ -37,10 +33,10 @@ namespace Test.Controllers
         [Route("~/ShopCart/AddToCart")]
         public async Task<RedirectToActionResult> AddToCart(int id)
         {
-            var item = await carRepository.Read(id);
+            var item = await carRepository.ReadAsync(id);
             if (item != null)
             {
-                shopCart.AddToCart(item);
+                shopCartRepositore.AddToCart(item);
             }
             return RedirectToAction("Index");
         }
@@ -48,7 +44,7 @@ namespace Test.Controllers
         [Route("~/ShopCart/DeleteCartItem/{id}")]
         public RedirectToActionResult DelitCartItem(int id)
         {
-            shopCartDelete.DeleteCartItem(id);
+            shopCartRepositore.DeleteCartItem(id);
 
             return RedirectToAction("Index");
         }

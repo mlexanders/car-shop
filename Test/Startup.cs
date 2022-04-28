@@ -35,10 +35,9 @@ namespace Test
             services.AddTransient<CarRepository>();
             services.AddTransient<CategoryRepository>();
             services.AddTransient<OrdersRepository>();
-            services.AddTransient<ShopCartRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            services.AddScoped(sp => ShopCart.GetCart(sp));
+            services.AddScoped(sp => ShopCartRepositore.GetCart(sp));
 
             services.AddControllersWithViews(mvcOtions =>
             {

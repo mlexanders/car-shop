@@ -7,6 +7,6 @@ namespace Test.ViewModels
     {
         public IEnumerable<Car> AllCars { get; set; }
 
-        public string currentCategory { get; set; }
+        public string CurrentCategory { get; set; }
     }
 }

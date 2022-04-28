@@ -14,14 +14,14 @@ namespace Test.Repository
             this.dBContext = dBContext;
         }
 
-        public async Task<IEnumerable<Car>> Read()
+        public async Task<IEnumerable<Car>> ReadAsync()
         {
-            return await dBContext.Cars.Include(c=>c.Category).ToListAsync();
+            return await dBContext.Cars.Include(c => c.Category).ToListAsync();
         }
 
         public async Task<List<Car>> GetFavoriteCars()
         {
-            return (await Read()).Where(c => c.IsFavourite).ToList();
+            return (await ReadAsync()).Where(c => c.IsFavourite).ToList();
         }
     }
 }

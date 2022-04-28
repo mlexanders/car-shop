@@ -5,6 +5,6 @@ namespace Test.ViewModels
 {
     public class HomeViewModel
     {
-        public IEnumerable<Car> favCars { get; set; }
+        public IEnumerable<Car> favoriteCars { get; set; }
     }
 }

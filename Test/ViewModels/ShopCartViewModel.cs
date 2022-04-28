@@ -1,9 +1,10 @@
-﻿using Test.Models;
+﻿using System.Collections.Generic;
+using Test.Models;
 
 namespace Test.ViewModels
 {
     public class ShopCartViewModel
     {
-        public ShopCart shopCart { get; set; }
+        public List<ShopCartItem> ListShopCarItem { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace Test.Controllers
         {
             var homeCars = new HomeViewModel
             {
-                favCars = await carRepository.GetFavoriteCars()
+                favoriteCars = await carRepository.GetFavoriteCars()
             };
             return View(homeCars);
         }

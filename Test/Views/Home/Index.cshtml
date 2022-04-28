@@ -4,7 +4,7 @@
 
 <div class="row mt-0 -5 mb-0 -2">
     @{
-        foreach (Car car in Model.favCars)
+        foreach (Car car in Model.favoriteCars)
         {
             @await Html.PartialAsync("AllCars", car);
         }

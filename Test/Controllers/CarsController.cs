@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,28 +22,28 @@ namespace Test.Controllers
         [Route("~/Cars/List/{category?}")]
         public async Task<IActionResult> List(string category)
         {
-            string _category = category;
             IEnumerable<Car> cars = null;
             string currentCategory = null;
-            if (string.IsNullOrEmpty(category))
+
+            if (category == null)
             {
-                cars = (await allCars.Read()).OrderBy(car => car.Id);
+                cars = (await allCars.ReadAsync()).OrderBy(car => car.Id);
             }
-            else if (string.Equals("electro", category, StringComparison.OrdinalIgnoreCase))
+            else if (string.Equals("electro", category))
             {
-                cars = (await allCars.Read()).Where(car => car.Category.CategoryName.Equals("Электромобиль")).OrderBy(i => i.Id);
+                cars = (await allCars.ReadAsync()).Where(car => car.Category.CategoryName.Equals("Электромобиль")).OrderBy(i => i.Id);
                 currentCategory = "Электромобили";
             }
-            else if (string.Equals("fuel", category, StringComparison.OrdinalIgnoreCase))
+            else if (string.Equals("fuel", category))
             {
-                cars = (await allCars.Read()).Where(car => car.Category.CategoryName.Equals("Классический автомобиль")).OrderBy(i => i.Id);
+                cars = (await allCars.ReadAsync()).Where(car => car.Category.CategoryName.Equals("Классический автомобиль")).OrderBy(i => i.Id);
                 currentCategory = "Классические автомобили";
             }
 
             var carObj = new CarsListViewModel
             {
                 AllCars = cars,
-                currentCategory = currentCategory
+                CurrentCategory = currentCategory
             };
             ViewBag.Title = "Страница с автомобилями";
             return View(carObj);

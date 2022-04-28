@@ -1,7 +1,7 @@
 ﻿@model ShopCartViewModel
 
 <div>
-    @foreach(var element in Model.shopCart.ListShopCarItem)
+    @foreach(var element in Model.ListShopCarItem)
     {
         <div class ="alert alert-warning mt-3">
             <b>Автомобиль:</b>@element.Car.Name<br/>

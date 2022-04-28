@@ -6,9 +6,9 @@ namespace Test.Repository
     public class OrdersRepository
     {
         private readonly AppDBContext dbContext;
-        private readonly ShopCart shopCart;
+        private readonly ShopCartRepositore shopCart;
 
-        public OrdersRepository(AppDBContext dBContext, ShopCart shopCart)
+        public OrdersRepository(AppDBContext dBContext, ShopCartRepositore shopCart)
         {
             this.dbContext = dBContext;
             this.shopCart = shopCart;

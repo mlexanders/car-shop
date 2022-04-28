@@ -7,9 +7,9 @@ namespace Test.Controllers
     public class OrderController : Controller
     {
         private readonly OrdersRepository allOrders;
-        private readonly ShopCart shopCart;
+        private readonly ShopCartRepositore shopCart;
 
-        public OrderController(OrdersRepository allOrders, ShopCart shopCart)
+        public OrderController(OrdersRepository allOrders, ShopCartRepositore shopCart)
         {
             this.allOrders = allOrders;
             this.shopCart = shopCart;
