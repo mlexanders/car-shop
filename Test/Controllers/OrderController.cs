@@ -9,7 +9,7 @@ namespace Test.Controllers
         private readonly OrdersRepository allOrders;
         private readonly ShopCartRepositore shopCart;
 
-        public OrderController(OrdersRepository allOrders, ShopCartRepositore shopCart)
+        public OrderController(IAllOrders allOrders, ShopCart shopCart)
         {
             this.allOrders = allOrders;
             this.shopCart = shopCart;

@@ -48,5 +48,28 @@ namespace Test.Controllers
             ViewBag.Title = "Страница с автомобилями";
             return View(carObj);
         }
+
+        [Route("~/Cars/OnePage/{id}")]
+        public async Task<IActionResult> OnePage(int id)
+        {
+            var item = await allCars.Read(id);
+
+            var carObj = new Car
+            {
+                Id = id,
+                Name = item.Name,
+                ShortDescription = item.ShortDescription,
+                LongDescription = item.LongDescription,
+                Image = item.Image,
+                Price = item.Price,
+                IsFavourite = item.IsFavourite,
+                Available = item.Available,
+                CategoryId = item.CategoryId,
+                Category =  item.Category
+            };
+
+            return View(carObj);
+
+        }
     }
 }

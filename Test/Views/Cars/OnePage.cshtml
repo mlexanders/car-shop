@@ -1,0 +1,33 @@
+﻿@model Car
+
+<div class="row m-3 px-5 pt-5 "><h2>@Model.Name </h2></div>
+
+<div class="row">
+
+    <div class="col">
+        <img class="img-fluid" src="@Model.Image" alt="@Model.Name">
+    </div>
+    <div class=" col card text-center" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title"> ОписСАНИЕ:</h5>
+            <p class="card-text">
+                @Model.ShortDescription
+            </p>
+            <p class="text-start"> Категория: <a class="link-primary" asp-controller="Cars" asp-action="List" asp-route-id="@Model.Category">@Model.CategoryId</a> </p>
+            <p class="text-start">IsFavourite: @Model.IsFavourite</p>
+            <p class="text-start">Available: @Model.Available</p>
+        </div>
+
+        <h2 class="text-start m-1 mx-4">Цена : @Model.Price</h2>
+
+        <div class="m-3">
+            <p><a class="btn btn-warning" asp-controller="ShopCart" asp-action="AddToCart" asp-route-id="@Model.Id">Добавить в корзину</a></p>
+        </div>
+
+    </div>
+</div>
+
+<div>
+    <h5 class=" text-center m-5 p-2"> бошое аписание </h5>
+    <p>@Model.LongDescription  </p>
+</div>
